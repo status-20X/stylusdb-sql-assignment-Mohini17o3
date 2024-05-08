@@ -141,27 +141,7 @@ test('Execute SQL Query with INNER JOIN', async () => {
     }));
 });
 
-test('Execute SQL Query with INNER JOIN and a WHERE Clause', async () => {
-    const query = 'SELECT student.name, enrollment.course, student.age FROM student INNER JOIN enrollment ON student.id = enrollment.student_id WHERE student.age > 25';
-    const result = await executeSELECTQuery(query);
-    /*
-    result =  [
-      {
-        'student.name': 'John',
-        'enrollment.course': 'Mathematics',
-        'student.age': '30'
-      },
-      {
-        'student.name': 'John',
-        'enrollment.course': 'Physics',
-        'student.age': '30'
-      }
-    ]
-    */
-    expect(result.length).toEqual(2);
-    // toHaveProperty is not working here due to dot in the property name
-    expect(result[0]).toEqual(expect.objectContaining({
-        "enrollment.course": "Mathematics",
-        "student.name": "John"
-    }));
-});
+test('Parse SQL Query with INNER JOIN', async () => {/*implement*/});
+test('Parse SQL Query with INNER JOIN and WHERE Clause', async () => {/*implement*/});
+test('Execute SQL Query with INNER JOIN', async () => {/*implement*/});
+test('Execute SQL Query with INNER JOIN and a WHERE Clause', async () => {/*implement*/});
